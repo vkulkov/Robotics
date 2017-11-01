@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<listing>
+    <statement content="int x = 5"/>
+    <statement content="int y = 3"/>
+    <statement content="int z"/>
+    <setup>
+        <if condition="x > y">
+            <statement content="z = x - y"/>
+            <statement content="x = y"/>
+        </if>
+        <else>
+            <statement content="z = x"/>
+        </else>
+        <pin_mode arg1="x" arg2="OUTPUT"/>
+    </setup>
+    <loop>
+        <while condition="z > 0">
+            <digital_write arg1="x" arg2="HIGH"/>
+            <delay arg="1000"/>
+            <digital_write arg1="x" arg2="LOW"/>
+            <delay arg="1000"/>
+            <statement content="z--"/>
+        </while>
+    </loop>
+</listing>
